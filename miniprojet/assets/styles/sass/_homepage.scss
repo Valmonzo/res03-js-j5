@@ -10,7 +10,7 @@
             display: grid;
             grid-template-columns: 0.2fr 0.2fr 0.6fr;
 
-             &>button {
+            &>button {
                 font-size: 3rem;
                 background: none;
                 border: none;
@@ -54,6 +54,17 @@
                     &>li {
                         padding: 0.5rem 0;
                         font-size: 1.1rem;
+
+                        &>a {
+                            text-decoration:none;
+                            color:black;
+                        }
+                        &>a:hover {
+                            text-decoration: underline 1px solid black;
+                            text-underline-offset: 7px;
+                            font-weight:bold;
+                            color:grey;
+                        }
                     }
                 }
 
@@ -65,12 +76,67 @@
             }
         }
 
-        & > section {
-            grid-column: 2/3;
-            padding: 1rem 2rem;
+        &>section {
+            padding: 2rem;
+
+            &>h2 {
+                font-size: 1.6rem;
+                text-transform: uppercase;
+                margin-bottom: 3rem;
+                font-weight: bold;
+                color: #0077b6;
+            }
+
+            &>section:first-of-type {
+                &>button {
+                    height: 6vh;
+                    text-align: center;
+                    font-size: 1.1rem;
+                    background-color: #023e8a;
+                    color: white;
+                    border: none;
+                    margin-bottom: 4rem;
+                    border-radius: 4px;
+                    padding: 0 1vw;
+                }
+            }
+
+            &>section {
+                &>table {
+                    width: 100%;
+                    &>thead {
+                        &>tr {
+                            font-weight: 500;
+                            font-size: 1.3rem;
+                            line-height: 4rem;
+                            text-align: left;
+                            &>th {}
+                        }
+                    }
+                    &>tbody {
+                        &>tr {
+                            font-size: 1.2rem;
+                            line-height: 2.5rem;
+
+                            &>td:last-of-type button {
+                                background: none;
+                                color: #b50604;
+                                border: none;
+                                font-size:1.2rem;
+                            }
+                        }
+
+                        &>tr:not(:last-of-type) {
+                            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                        }
+                    }
+                }
+            }
         }
     }
 }
+
+
 
 .border {
     border-bottom: 1px solid black;
@@ -82,5 +148,9 @@
 }
 
 .border-right {
-    border-right:1px solid black;
+    border-right: 1px solid black;
+}
+
+.large {
+    grid-column: 1/3;
 }
