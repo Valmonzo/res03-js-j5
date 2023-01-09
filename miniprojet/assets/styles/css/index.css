@@ -52,15 +52,76 @@ table {
   border-spacing: 0;
 }
 
+#homepage {
+  font-family: "Montserrat", sans-serif;
+}
 #homepage > header {
+  height: 15vh;
   display: grid;
   grid-template-columns: 1fr 3fr;
 }
 #homepage > header > section {
-  border-right: 1px solid black;
+  display: grid;
+  grid-template-columns: 0.2fr 0.2fr 0.6fr;
+}
+#homepage > header > section > button {
+  font-size: 3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+#homepage > header > section > figure {
+  grid-column: 3/4;
   display: flex;
-  justify-content: center;
   align-items: center;
+}
+#homepage > header > nav {
+  border-bottom: 1px solid black;
+}
+#homepage > main {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  height: 80vh;
+}
+#homepage > main > aside {
+  border-right: 1px solid black;
+  grid-column: 1/2;
+  padding: 5rem 1rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+#homepage > main > aside nav h2 {
+  font-weight: 500;
+  margin: 1rem 0;
+}
+#homepage > main > aside nav ul {
+  display: none;
+}
+#homepage > main > aside nav ul > li {
+  padding: 0.5rem 0;
+  font-size: 1.1rem;
+}
+#homepage > main > aside nav .show {
+  display: grid;
+  grid-template-columns: 1fr;
+  font-weight: 400;
+}
+#homepage > main > section {
+  grid-column: 2/3;
+  padding: 1rem 2rem;
+}
+
+.border {
+  border-bottom: 1px solid black;
+  border-right: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.border-right {
+  border-right: 1px solid black;
 }
 
 /*# sourceMappingURL=index.css.map */
