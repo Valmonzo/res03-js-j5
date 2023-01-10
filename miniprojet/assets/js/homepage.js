@@ -1,5 +1,4 @@
-let users = [
-    {
+let users = [{
         id: 0,
         isActive: false,
         age: 24,
@@ -61,8 +60,8 @@ let users = [
     }
 ];
 
-function newUsers(users) {
-    for(user of users) {
+function newUsers() {
+    for (user of users) {
         let tr = document.createElement("tr");
         let td1 = document.createElement("td");
         let td2 = document.createElement("td");
@@ -79,13 +78,16 @@ function newUsers(users) {
         console.log(tbody);
         let button = document.createElement("button");
 
-        td1.textContent= user.id;
+        td1.textContent = user.id;
         td2.textContent = user.name;
         td3.textContent = user.age;
         span1.setAttribute("class", "bi-person-fill-down");
         span2.setAttribute("class", "bi-eye");
         span3.setAttribute("class", "bi-pen");
         span4.setAttribute("class", "bi-trash3");
+        span4.setAttribute("data-user", user.id)
+        button.setAttribute("data-user", user.id);
+        button.setAttribute("class", "user-delete");
 
         td4.appendChild(span1);
         a1.appendChild(span2);
@@ -111,14 +113,14 @@ function newUsers(users) {
 
 function menuDeroulant() {
 
-let sousMenu = document.querySelectorAll("#homepage main aside nav ul");
-let menu = document.querySelectorAll("#homepage main aside nav h2");
+    let sousMenu = document.querySelectorAll("#homepage main aside nav ul");
+    let menu = document.querySelectorAll("#homepage main aside nav h2");
 
-for(let i=0; i<menu.length; i++) {
-    menu[i].addEventListener("click", function(e) {
-        sousMenu[i].classList.toggle("show");
-    })
-}
+    for (let i = 0; i < menu.length; i++) {
+        menu[i].addEventListener("click", function(e) {
+            sousMenu[i].classList.toggle("show");
+        })
+    }
 
 
 }
@@ -130,7 +132,7 @@ function navBar() {
     let main = document.querySelector("#homepage > main section")
     console.log(main);
 
-    button.addEventListener("click", function(){
+    button.addEventListener("click", function() {
         aside.classList.toggle("hidden");
         section.classList.toggle("border");
         section.classList.toggle("border-right");
@@ -138,8 +140,40 @@ function navBar() {
     })
 }
 
+
+function deleteUser() {
+    let sectionDelete = document.getElementById("delete-modal");
+    let trash = document.getElementsByClassName("user-delete");
+    console.log(trash);
+    let cancel = document.getElementById("modal-cancel-btn");
+    let sectionTab = document.getElementById("user-tab");
+    let h4 = document.getElementById("user-name");
+    console.log(h4);
+    for(button of trash){
+    button.addEventListener("click", function(event) {
+      let userId =  parseInt(event.target.getAttribute("data-user"));
+      console.log(userId)
+        sectionDelete.classList.remove("hidden");
+        sectionDelete.classList.add("confirm-delete");
+        sectionTab.classList.add("hidden");
+        h4.textContent = users[userId].name;
+
+    })
+    }
+
+    cancel.addEventListener("click", function() {
+        sectionDelete.classList.add("hidden");
+        sectionDelete.classList.remove("confirm-delete")
+        sectionTab.classList.remove("hidden");
+    })
+
+}
+
+
+
 window.addEventListener("DOMContentLoaded", function() {
     menuDeroulant();
     navBar();
     newUsers();
+    deleteUser();
 })

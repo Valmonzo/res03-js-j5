@@ -85,7 +85,7 @@
                 </nav>
 
             </aside>
-            <section>
+            <section id="user-tab">
                 <h2>Liste des utilisateurs</h2>
                 <section>
                     <button class="add-btn" id="add-user-btn"><span class="bi-person-fill-add"></span> Ajouter un utilisateur</button>
@@ -152,6 +152,16 @@
                             </tr> -->
                         </tbody>
                     </table>
+                </section>
+            </section>
+            <section id="delete-modal" class="hidden">
+                <section id="confirm-delete">
+                    <h3>Êtes-vous sûr-e de vouloir supprimer cet utilisateur ?</h3>
+                    <h4 id="user-name">Nom d'utilisateur</h4>
+                    <section id="modal-btns">
+                        <button id="modal-cancel-btn">Annuler</button>
+                        <button id="modal-delete-btn">Supprimer</button>
+                    </section>
                 </section>
             </section>
         </main>
